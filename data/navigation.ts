@@ -1,39 +1,46 @@
 import { NavLink } from "@/types";
-import { categories } from "./categories";
 
 export const navigationLinks: NavLink[] = [
-  { label: "Home", href: "/" },
   { label: "Shop", href: "/shop" },
+  { label: "Home", href: "/categories/home" },
+  { label: "Outdoor", href: "/categories/outdoor-weekend" },
+  { label: "Everyday", href: "/categories/everyday" },
+  { label: "Travel", href: "/categories/travel" },
   {
-    label: "Categories",
+    label: "More",
     href: "/categories",
-    children: categories.map((c) => ({
-      label: c.name,
-      href: `/categories/${c.slug}`,
-    })),
+    children: [
+      { label: "Kitchen + Dining", href: "/categories/kitchen-dining" },
+      { label: "Apparel + Accessories", href: "/categories/apparel-accessories" },
+      { label: "Wellness + Fitness", href: "/categories/wellness-fitness" },
+      { label: "Tech + Workspace", href: "/categories/tech-workspace" },
+      { label: "Gifts", href: "/categories/gifts" },
+      { label: "New Arrivals", href: "/new-arrivals" },
+      { label: "Best Sellers", href: "/best-sellers" },
+    ],
   },
-  { label: "New Arrivals", href: "/new-arrivals" },
-  { label: "Best Sellers", href: "/best-sellers" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const footerLinks = {
+  shop: [
+    { label: "Shop All", href: "/shop" },
+    { label: "Categories", href: "/categories" },
+    { label: "New Arrivals", href: "/new-arrivals" },
+    { label: "Best Sellers", href: "/best-sellers" },
+  ],
   company: [
-    { label: "About Us", href: "/about" },
-    { label: "Contact Us", href: "/contact" },
-    { label: "Careers", href: "/contact" },
-    { label: "FAQs", href: "/faq" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+    { label: "FAQ", href: "/faq" },
   ],
   customerCare: [
-    { label: "Track Order", href: "/track-order" },
+    { label: "Shipping", href: "/shipping" },
     { label: "Returns", href: "/returns" },
-    { label: "Shipping Policy", href: "/shipping" },
-    { label: "Support", href: "/contact" },
+    { label: "Track Order", href: "/track-order" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms & Conditions", href: "/terms" },
+    { label: "Privacy", href: "/privacy" },
+    { label: "Terms", href: "/terms" },
     { label: "Refund Policy", href: "/refund" },
   ],
 };

@@ -1,28 +1,49 @@
 import { HeroBanner } from "@/components/homepage/hero-banner";
-import { CategoryCarousel } from "@/components/homepage/category-carousel";
-import { DealsOfTheDay } from "@/components/homepage/deals-of-the-day";
-import { FeaturesRow } from "@/components/homepage/features-row";
+import { BrandIntro } from "@/components/homepage/brand-intro";
+import { LifestyleGrid } from "@/components/homepage/lifestyle-grid";
 import { FeaturedCollection } from "@/components/homepage/featured-collection";
-import { PromotionalBanner } from "@/components/homepage/promotional-banner";
-import { BestSellers } from "@/components/homepage/best-sellers";
-import { AboutSection } from "@/components/homepage/about-section";
+import { EditorialShowcase } from "@/components/homepage/editorial-showcase";
 import { NewArrivals } from "@/components/homepage/new-arrivals";
-import { CustomerReviews } from "@/components/homepage/customer-reviews";
+import { HumbleEdit } from "@/components/homepage/humble-edit";
+import { LifestyleCampaign } from "@/components/homepage/lifestyle-campaign";
+import { BestSellers } from "@/components/homepage/best-sellers";
+import { PromotionalBanner } from "@/components/homepage/promotional-banner";
+import { BrandPhilosophy } from "@/components/homepage/brand-philosophy";
+import { FeaturesRow } from "@/components/homepage/features-row";
 import { Newsletter } from "@/components/homepage/newsletter";
+import { lifestyleCampaigns, homeGatherSlugs, outdoorWeekendSlugs, everydayAwaySlugs } from "@/data/homepage";
+import { getProductsBySlugs } from "@/data/products";
+
+const secondarySlugs = [
+  "hardcover-notebook",
+  "vessel-scented-candle",
+  "cotton-overshirt",
+  "manual-coffee-grinder",
+] as const;
 
 export default function HomePage() {
+  const homeGather = getProductsBySlugs(homeGatherSlugs);
+  const outdoorWeekend = getProductsBySlugs(outdoorWeekendSlugs);
+  const everydayAway = getProductsBySlugs(everydayAwaySlugs);
+  const secondary = getProductsBySlugs(secondarySlugs);
+
   return (
     <>
       <HeroBanner />
-      <CategoryCarousel />
-      <DealsOfTheDay />
+      <BrandIntro />
       <FeaturesRow />
+      <LifestyleGrid />
       <FeaturedCollection />
-      <PromotionalBanner />
-      <BestSellers />
-      <AboutSection />
+      <EditorialShowcase />
       <NewArrivals />
-      <CustomerReviews />
+      <HumbleEdit />
+      <LifestyleCampaign {...lifestyleCampaigns.homeGather} products={homeGather} />
+      <LifestyleCampaign {...lifestyleCampaigns.outdoorWeekend} products={outdoorWeekend} reverse />
+      <LifestyleCampaign {...lifestyleCampaigns.everydayAway} products={everydayAway} tone="dark" />
+      <BestSellers />
+      <LifestyleCampaign {...lifestyleCampaigns.secondary} products={secondary} reverse />
+      <PromotionalBanner />
+      <BrandPhilosophy />
       <Newsletter />
     </>
   );

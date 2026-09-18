@@ -1,22 +1,16 @@
 export const company = {
-  name: "AAM Partners LLC",
-  tagline: "Everything You Need. Delivered with Confidence.",
+  name: "HUMBLE VALLEYS LLC",
+  shortName: "Humble Valleys",
+  tagline: "Modern living, simply chosen.",
   description:
-    "AAM Partners LLC brings together quality products across multiple categories, helping families find everything they need in one trusted online marketplace.",
-  email: "aampartnersllc1@gmail.com",
+    "Humble Valleys is a contemporary lifestyle shop for the home, the table, the weekend, and the everyday — practical pieces chosen for how they look, how they feel, and how they last.",
+  email: "humblevalleysllc@gmail.com",
   address: {
-    street: "717 S Military Hwy",
-    city: "Virginia Beach",
-    state: "VA",
-    zip: "23464",
+    street: "1340 SHELTOLA WAY",
+    city: "HASLET",
+    state: "TX",
+    zip: "76052",
     country: "United States",
   },
-  social: {
-    instagram: "https://instagram.com/aampartnersllc",
-    facebook: "https://facebook.com/aampartnersllc",
-    twitter: "https://twitter.com/aampartnersllc",
-    pinterest: "https://pinterest.com/aampartnersllc",
-  },
-  hours: "Mon–Fri: 9am–6pm EST",
-  copyright: `© ${new Date().getFullYear()} AAM Partners LLC. All rights reserved.`,
+  copyright: "© 2026 HUMBLE VALLEYS LLC. All rights reserved.",
 };

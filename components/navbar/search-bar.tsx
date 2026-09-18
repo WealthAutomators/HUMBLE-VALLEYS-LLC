@@ -38,22 +38,22 @@ export function SearchBar() {
   };
 
   return (
-    <div className="border-b border-border bg-gradient-to-r from-primary/[0.06] via-background to-accent/[0.06]">
-      <Container className="py-2">
-        <div ref={searchRef} className="relative">
+    <div className="border-b border-border bg-muted/50">
+      <Container className="py-2.5">
+        <div ref={searchRef} className="relative mx-auto max-w-xl">
           <form onSubmit={handleSearchSubmit}>
             <div className="relative">
               <button
                 type="submit"
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/70 transition-colors hover:text-primary"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-primary"
                 aria-label="Search products"
               >
                 <Search className="h-4 w-4" />
               </button>
               <Input
                 type="search"
-                placeholder="Search electronics, home, beauty, toys & more..."
-                className="h-10 rounded-lg border-primary/15 bg-white pl-10 pr-4 text-sm shadow-none focus-visible:ring-primary/25"
+                placeholder="Search home, travel, outdoor, everyday..."
+                className="h-10 rounded-none border-border bg-ivory pl-10 pr-4 text-sm shadow-none focus-visible:ring-primary/20"
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
@@ -65,7 +65,7 @@ export function SearchBar() {
           </form>
 
           {searchOpen && searchQuery.trim().length > 0 && (
-            <div className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-lg border border-border bg-white py-1 shadow-lg">
+            <div className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden border border-border bg-ivory py-1 shadow-sm">
               {searchResults.length > 0 ? (
                 <>
                   {searchResults.map((product) => (
@@ -78,8 +78,8 @@ export function SearchBar() {
                         setSearchQuery("");
                       }}
                     >
-                      <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-md border border-border">
-                        <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="36px" />
+                      <div className="relative h-10 w-10 shrink-0 overflow-hidden border border-border bg-muted">
+                        <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="40px" />
                       </div>
                       <div>
                         <p className="text-sm font-medium">{product.name}</p>

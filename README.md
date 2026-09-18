@@ -1,20 +1,22 @@
-# AAM Partners LLC
+# HUMBLE VALLEYS LLC
 
-A production-quality, reusable ecommerce storefront template built with Next.js App Router, TypeScript, and Tailwind CSS.
+A contemporary Texas lifestyle storefront built on the existing Next.js ecommerce engine.
 
-This is the master template for AAM Partners LLC — a general marketplace selling electronics, home essentials, beauty, toys, pet supplies, and more. Duplicate this repository and swap brand assets, colors, and data to launch new stores without rewriting components.
+HUMBLE VALLEYS LLC  
+1340 SHELTOLA WAY  
+HASLET, TX 76052  
+humblevalleysllc@gmail.com
 
 ## Tech Stack
 
-- **Next.js 15** (App Router)
+- **Next.js 16** (App Router)
+- **React 19**
 - **TypeScript**
 - **Tailwind CSS v4**
 - **shadcn/ui** (Radix primitives)
-- **Lucide Icons**
-- **Framer Motion** (subtle animations)
+- **Framer Motion**
 - **Embla Carousel**
-- **React Context** (cart, wishlist, recently viewed)
-- **localStorage** persistence (no backend)
+- **localStorage** cart, wishlist, and recently viewed
 
 ## Getting Started
 
@@ -25,76 +27,18 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-```bash
-npm run build   # Production build
-npm run start   # Start production server
-```
+## Store Identity
 
-## Customizing for a New Store
-
-To rebrand this template for a new store, edit **only** these files:
-
-| What to change | Where |
-|---|---|
-| Company name, contact, social | `data/company.ts` |
-| Brand colors | `styles/theme.ts` + `app/globals.css` |
-| Navigation & footer links | `data/navigation.ts` |
-| Categories | `data/categories.ts` |
-| Products | `data/products.ts` |
-| Homepage content | `data/homepage.ts` |
-| Testimonials | `data/testimonials.ts` |
-| Logo | `public/logo/` |
-| Hero images | `public/hero/` |
-| Banners | `public/banners/` |
-| Category images | `public/categories/` |
-| Product images | `public/products/` |
-
-Regenerate placeholder SVGs after changing products:
-
-```bash
-node scripts/generate-images.mjs
-```
-
-## Project Structure
-
-```
-app/                  # Next.js pages (App Router)
-components/
-  navbar/             # Sticky navigation with search
-  footer/             # Four-column footer
-  homepage/           # Homepage sections
-  product/            # Product cards, gallery, quick view
-  cart/               # Cart page
-  checkout/           # Checkout flow
-  shop/               # Shop with filters
-  ui/                 # Reusable UI primitives
-data/                 # All store content (JSON-like TS files)
-lib/                  # Utilities and constants
-hooks/                # Custom React hooks
-context/              # Cart, wishlist, recently viewed
-public/               # Static assets
-styles/               # Theme color tokens
-types/                # TypeScript interfaces
-```
+Warm ivory, charcoal, sage, and a restrained terracotta accent. Editorial serif headings (Fraunces) with a readable sans body (Figtree). Full-width cinematic hero. No Western costume styling.
 
 ## Features
 
-- Full homepage with 12 sections (hero, categories, deals, best sellers, etc.)
-- Working cart with add/remove/quantity and localStorage persistence
-- Working wishlist with localStorage persistence
-- Live search filtering in navbar and shop page
-- Quick view modal on product cards
-- Product detail page with gallery, accordion, related products
-- Shop page with sidebar filters, sorting, and pagination
-- Checkout with order summary and payment form
-- Fully responsive (mobile, tablet, desktop)
-- 26 products across 6 categories
+- Product browsing, detail pages, categories, search, filtering, and sorting
+- Cart, wishlist, and recently viewed (localStorage)
+- Demo login and demo checkout
+- The Humble Edit curated collection
+- 51 lifestyle products across 9 categories
 
 ## Checkout
 
-Use coupon code `SAVE10` on the cart page for a 10% discount.
-
-## Brand Colors
-
-- **Primary:** Royal Purple `#7C3AED`
-- **Accent:** Amber `#F59E0B`
+Use coupon code `SAVE10` on the cart page for a 10% discount. Checkout is a demonstration flow and does not process live payments.

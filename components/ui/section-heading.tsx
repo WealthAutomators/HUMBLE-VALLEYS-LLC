@@ -28,8 +28,8 @@ export function SectionHeading({
       )}
     >
       <div>
-        <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">{title}</h2>
-        {subtitle && <p className="mt-2 text-muted-foreground">{subtitle}</p>}
+        <h2 className="font-serif text-3xl font-medium tracking-tight text-foreground md:text-4xl">{title}</h2>
+        {subtitle && <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">{subtitle}</p>}
       </div>
       {viewMoreLink && (
         <Button variant="link" asChild className="text-sm font-medium">

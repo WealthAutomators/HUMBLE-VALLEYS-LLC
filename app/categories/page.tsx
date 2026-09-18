@@ -10,14 +10,14 @@ export const metadata = {
 export default function CategoriesPage() {
   return (
     <Container className="py-8 md:py-12">
-      <h1 className="text-3xl font-semibold tracking-tight">Shop by Category</h1>
-      <p className="mt-2 text-muted-foreground">Browse our full range of premium towels and accessories</p>
+      <h1 className="font-serif text-4xl font-medium tracking-tight">Shop by Category</h1>
+      <p className="mt-2 text-muted-foreground">Home, table, weekend, travel, and the rest of everyday living.</p>
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map((category) => (
           <Link
             key={category.id}
             href={`/categories/${category.slug}`}
-            className="group overflow-hidden rounded-xl border border-border bg-white transition-shadow hover:shadow-md"
+            className="group overflow-hidden border border-border bg-ivory transition-colors hover:border-primary/30"
           >
             <div className="relative aspect-[16/10] overflow-hidden bg-muted">
               <Image

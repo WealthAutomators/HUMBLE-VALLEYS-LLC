@@ -2,10 +2,9 @@
 
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { products as allProducts } from "@/data/products";
-import { sortOptions } from "@/data/homepage";
+import { products as allProducts, getEffectivePrice } from "@/data/products";
+import { humbleEditSlugs, sortOptions } from "@/data/homepage";
 import { Product } from "@/types";
-import { getEffectivePrice } from "@/data/products";
 import { Container } from "@/components/ui/container";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
@@ -41,7 +40,8 @@ export function ShopContent() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
     initialCategory ? [initialCategory] : []
   );
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 150]);
+  const initialCollection = searchParams.get("collection") || "";
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 300]);
   const [inStockOnly, setInStockOnly] = useState(false);
   const [saleOnly, setSaleOnly] = useState(initialSale);
   const [sort, setSort] = useState("featured");
@@ -78,8 +78,12 @@ export function ShopContent() {
       result = result.filter((p) => p.salePrice);
     }
 
+    if (initialCollection === "humble-edit") {
+      result = result.filter((p) => (humbleEditSlugs as readonly string[]).includes(p.slug));
+    }
+
     return sortProducts(result, sort);
-  }, [search, selectedCategories, priceRange, inStockOnly, saleOnly, sort]);
+  }, [search, selectedCategories, priceRange, inStockOnly, saleOnly, sort, initialCollection]);
 
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
   const paginatedProducts = filteredProducts.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
@@ -110,8 +114,14 @@ export function ShopContent() {
   return (
     <Container className="py-8 md:py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-semibold tracking-tight">Shop</h1>
-        <p className="mt-2 text-muted-foreground">{filteredProducts.length} products</p>
+        <h1 className="font-serif text-4xl font-medium tracking-tight">
+          {initialCollection === "humble-edit" ? "The Humble Edit" : "Shop"}
+        </h1>
+        <p className="mt-2 text-muted-foreground">
+          {initialCollection === "humble-edit"
+            ? "A considered selection across home, table, weekend, and everyday carry."
+            : `${filteredProducts.length} products`}
+        </p>
       </div>
 
       <div className="flex gap-8">
@@ -166,7 +176,7 @@ export function ShopContent() {
                 onClick={() => {
                   setSearch("");
                   setSelectedCategories([]);
-                  setPriceRange([0, 150]);
+                  setPriceRange([0, 300]);
                   setInStockOnly(false);
                   setSaleOnly(false);
                   setPage(1);

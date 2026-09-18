@@ -11,14 +11,14 @@ export function FeaturedCollection() {
   const products = getProductsBySlugs(homepageFeaturedSlugs);
 
   return (
-    <section className="py-12 md:py-16">
+    <section className="py-12 md:py-20">
       <Container>
         <SectionHeading
           title={featuredCollection.title}
           subtitle={featuredCollection.description}
-          viewMoreLink={`/categories/${featuredCollection.categorySlug}`}
+          viewMoreLink="/shop"
         />
-        <Carousel slidesToShow={5} className="px-8">
+        <Carousel slidesToShow={4} className="px-8">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
